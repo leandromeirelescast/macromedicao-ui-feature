@@ -1,2 +1,2 @@
-# laudos-ui-feature
-sbesp laudos-ui-feature
+# macromedicao-ui-feature
+sbesp macromedicao-ui-feature
