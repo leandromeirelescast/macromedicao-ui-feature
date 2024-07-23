@@ -11,6 +11,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { NovaComunicacaoInternaComponent } from './nova-comunicacao-interna/nova-comunicacao-interna.component';
 import { ParametrosComponent } from './parametros/parametros.component';
 import { SolicitacaoAcessoComponent } from './solicitacao-acesso/solicitacao-acesso.component';
+import {EstruturasComponent} from "./estruturas/estruturas.component";
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -31,6 +32,7 @@ export const routes: Routes = [
       { path: 'parametros', component: ParametrosComponent },
       { path: 'notification', component: NotificationComponent },
       { path: 'notification/config', component: NotificationConfigsComponent },
+      { path: 'estruturas', component: EstruturasComponent },
     ],
   },
 ];
