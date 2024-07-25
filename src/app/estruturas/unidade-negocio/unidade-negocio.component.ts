@@ -4,13 +4,15 @@ import {UnidadeNegocio} from "../../models/UnidadeNegocio";
 import {Router} from "@angular/router";
 import {UnidadeNegocioService} from "../../services/unidade-negocio.service";
 import {response} from "express";
+import {MatIcon} from "@angular/material/icon";
 
 @Component({
   selector: 'app-unidade-negocio',
   standalone: true,
-    imports: [
-        NgForOf
-    ],
+  imports: [
+    NgForOf,
+    MatIcon
+  ],
   templateUrl: './unidade-negocio.component.html',
   styleUrl: './unidade-negocio.component.scss'
 })
