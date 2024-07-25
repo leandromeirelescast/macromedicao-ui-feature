@@ -1,1 +1,48 @@
-<p>estruturas works!</p>
+<div class="estruturas">
+  <div class="tab-content">
+    <ul class="tabs">
+      <li [class.active]="activeTab === 'sistema'" (click)="activeTab = 'sistema'">Sistemas De Abastecimento</li>
+      <li [class.active]="activeTab === 'estacoes'" (click)="activeTab = 'estacoes'">Estações</li>
+      <li [class.active]="activeTab === 'eta'" (click)="activeTab = 'eta'">ETA</li>
+      <li [class.active]="activeTab === 'unidade'" (click)="activeTab = 'unidade'">Unidades de Negócio</li>
+      <li [class.active]="activeTab === 'municipio'" (click)="activeTab = 'municipio'">Município</li>
+      <li [class.active]="activeTab === 'setores'" (click)="activeTab = 'setores'">Setores</li>
+    </ul>
+    <div *ngIf="activeTab === 'sistema'">
+      <table class="usuarios-tabela">
+        <thead>
+        <tr>
+          <th>Matrícula</th>
+          <th>Nome</th>
+          <th>Perfil</th>
+          <th>Unidade</th>
+          <th>Situação</th>
+          <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr >
+          <td> Lorem </td>
+          <td> IMPSUM </td>
+          <td>UM</td>
+          <td>DOLOR</td>
+          <td>
+            <label class="switch">
+              <input type="checkbox" >
+              <span class="slider round"></span>
+            </label>
+          </td>
+          <td>
+            <button class="icon-button" >
+              <mat-icon>edit_square</mat-icon>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="activeTab === 'unidade'">
+        <app-unidade-negocio></app-unidade-negocio>
+    </div>
+  </div>
+</div>

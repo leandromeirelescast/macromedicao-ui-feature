@@ -1,0 +1,16 @@
+<div class="pesquisar-usuario">
+  <div class="pesquisa-form">
+    <div class="row">
+      <div class="col">
+        <label for="codigo">Unidade de Negócio</label>
+        <select id="codigo" formControlName="perfil">
+          <option value="">Selecione</option>
+          <option *ngFor="let item of unidadeNegocio" [value] = "item.dsUnidadeNegocio"> {{item.dsUnidadeNegocio}} </option>
+        </select>
+      </div>
+      <div class="col btn-pesquisar">
+        <button type="button" class="btn primary" >Pesquisar</button>
+      </div>
+    </div>
+  </div>
+</div>
