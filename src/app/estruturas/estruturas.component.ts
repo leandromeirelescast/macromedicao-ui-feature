@@ -15,7 +15,8 @@ import {UnidadeNegocioService} from "../services/unidade-negocio.service";
     MatPaginator,
     NgForOf,
     NgIf,
-    UnidadeNegocioComponent
+    UnidadeNegocioComponent,
+
   ],
   templateUrl: './estruturas.component.html',
   styleUrl: './estruturas.component.scss'
@@ -26,6 +27,7 @@ export class EstruturasComponent implements OnInit{
 
   ngOnInit(): void {
   }
+
 
 
 

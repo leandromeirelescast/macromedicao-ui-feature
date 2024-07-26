@@ -3,22 +3,30 @@ import {NgForOf} from "@angular/common";
 import {UnidadeNegocio} from "../../models/UnidadeNegocio";
 import {Router} from "@angular/router";
 import {UnidadeNegocioService} from "../../services/unidade-negocio.service";
-import {response} from "express";
 import {MatIcon} from "@angular/material/icon";
+import {MatDialog} from "@angular/material/dialog";
+import {IncluirUnidadeComponent} from "./incluir-unidade/incluir-unidade.component";
+import {MatButton} from "@angular/material/button";
+import {MatPaginator} from "@angular/material/paginator";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-unidade-negocio',
   standalone: true,
   imports: [
     NgForOf,
-    MatIcon
+    MatIcon,
+    MatButton,
+    MatPaginator
   ],
   templateUrl: './unidade-negocio.component.html',
   styleUrl: './unidade-negocio.component.scss'
 })
 export class UnidadeNegocioComponent {
 
-  constructor(private router: Router, private unidadeNegocioService: UnidadeNegocioService) {
+  constructor(private router: Router,
+              private unidadeNegocioService: UnidadeNegocioService,
+              public dialog: MatDialog) {
   }
   totalElements = 50;
   size = 10;
@@ -29,8 +37,6 @@ export class UnidadeNegocioComponent {
   ngOnInit(): void {
     this.loadUnidades(this.page, this.size)
   }
-
-
   private loadUnidades(page: number, size: number) {
     this.unidadeNegocioService.getUnidadesCadastradas(page, size).subscribe(response => {
       this.unidadeNegocio = response.content;
@@ -38,4 +44,29 @@ export class UnidadeNegocioComponent {
       this.totalPages = response.totalPages;
     });
   }
+
+  openDialog() {
+   const dialogRef = this.dialog.open(IncluirUnidadeComponent, {
+      height: '350px',
+      width: '750px',
+    });
+
+   dialogRef.afterClosed().subscribe((result) => {
+     this.loadUnidades(this.page, this.size)   }
+   )
+  }
+
+  deleteItem(id: number) {
+    this.unidadeNegocioService.deleteUnidade(id).subscribe(() => {
+      this.loadUnidades(this.page, this.size);
+    });
+  }
+
+
+  onPageChange(event: any) {
+    this.page = event.pageIndex;
+    this.size = event.pageSize;
+    this.loadUnidades(this.page, this.size);
+  }
+
 }

@@ -1,7 +1,7 @@
 <div class="pesquisar-usuario">
   <div class="pesquisa-form">
-    <div class="row">
-      <div class="col">
+    <div class="row-cols-auto">
+      <div class="col-auto">
         <label for="codigo">Unidade de Negócio</label>
         <select id="codigo" formControlName="perfil">
           <option value="">Selecione</option>
@@ -14,13 +14,13 @@
     </div>
 
     <div>
-      <div class="row">
-        <div class="col">
+      <div class="row-cols-auto">
+        <div class="col-auto">
           <h4>Unidades de negócio</h4>
         </div>
-        <div class="col">
+        <div class="col-auto">
           <button type="button" class="btn primary" >Exportar</button>
-          <button type="button" class="btn " > + Adicionar</button>
+          <button type="button"  mat-button (click)="openDialog()"class="btn " > + Adicionar</button>
         </div>
 
       </div>
@@ -45,7 +45,7 @@
             <button class="icon-button">
               <mat-icon>assignment</mat-icon>
             </button>
-            <button class="icon-button" color="warn">
+            <button class="icon-button" color="warn" (click)="deleteItem(item.id)">
               <mat-icon>delete</mat-icon>
             </button>
           </td>
@@ -53,5 +53,10 @@
         </tbody>
       </table>
     </div>
+    <mat-paginator [length]="totalElements"
+                   [pageSize]="size"
+                   [pageSizeOptions]="[10, 20, 50]"
+                   (page)="onPageChange($event)">
+    </mat-paginator>
     </div>
   </div>
