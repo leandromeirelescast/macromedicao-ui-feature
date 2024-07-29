@@ -7,6 +7,7 @@ import {MatFormField} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import { FormsModule } from '@angular/forms';
 import {UnidadeForm} from "../../../models/UnidadeForm";
+import {UnidadeNegocio} from "../../../models/UnidadeNegocio";
 
 @Component({
   selector: 'app-editar-unidade',
@@ -48,6 +49,10 @@ export class EditarUnidadeComponent implements OnInit{
 
   cancelarAlteracao() {
     this.dialog.closeAll();
+  }
+
+  editarUnidade(unidadeNegocio: UnidadeNegocio){
+      console.log("OBJETO PARA EDITAR",unidadeNegocio)
   }
 
 
