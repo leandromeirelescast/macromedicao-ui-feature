@@ -46,7 +46,9 @@ export class IncluirUnidadeComponent implements OnInit {
        this.service.incluirUnidade(this.unidadeForm.value).pipe(
          tap((res) => {
          }),
-       ).subscribe()
+       ).subscribe((result) => {
+         this.dialog.closeAll()
+       })
       }
 
   }

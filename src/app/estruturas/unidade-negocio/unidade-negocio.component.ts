@@ -9,6 +9,9 @@ import {IncluirUnidadeComponent} from "./incluir-unidade/incluir-unidade.compone
 import {MatButton} from "@angular/material/button";
 import {MatPaginator} from "@angular/material/paginator";
 import {Observable} from "rxjs";
+import {EditarUnidadeComponent} from "./editar-unidade/editar-unidade.component";
+import {UsuarioForm} from "../../models/UsuarioForm";
+
 
 @Component({
   selector: 'app-unidade-negocio',
@@ -54,6 +57,20 @@ export class UnidadeNegocioComponent {
    dialogRef.afterClosed().subscribe((result) => {
      this.loadUnidades(this.page, this.size)   }
    )
+  }
+
+  openEditDialog(unidadeNegocio: UnidadeNegocio) {
+
+    console.log(unidadeNegocio)
+
+    const dialogEditRef = this.dialog.open(EditarUnidadeComponent, {
+      height: '350px',
+      width: '750px',
+      data : {
+        item: unidadeNegocio
+      }
+    });
+
   }
 
   deleteItem(id: number) {

@@ -39,10 +39,10 @@
           <td>{{ item?.nmUnidadeNegocio }}</td>
 
           <td>
-            <button class="icon-button">
+            <button class="icon-button" (click)="openEditDialog(item)">
               <mat-icon>edit_square</mat-icon>
             </button>
-            <button class="icon-button">
+            <button class="icon-button" >
               <mat-icon>assignment</mat-icon>
             </button>
             <button class="icon-button" color="warn" (click)="deleteItem(item.id)">
