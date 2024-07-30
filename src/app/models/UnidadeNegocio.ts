@@ -4,3 +4,9 @@ export interface UnidadeNegocio {
   dsUnidadeNegocio: string;
   nmUnidadeNegocio: string;
 }
+
+
+export interface UnidadeNegocioDTO {
+  descricao: string;
+  nome: string;
+}

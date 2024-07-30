@@ -8,6 +8,8 @@ import {MatInput} from "@angular/material/input";
 import { FormsModule } from '@angular/forms';
 import {UnidadeForm} from "../../../models/UnidadeForm";
 import {UnidadeNegocio} from "../../../models/UnidadeNegocio";
+import {UnidadeNegocioService} from "../../../services/unidade-negocio.service";
+import {tap} from "rxjs";
 
 @Component({
   selector: 'app-editar-unidade',
@@ -29,13 +31,14 @@ export class EditarUnidadeComponent implements OnInit{
   objectToEdit: any
   constructor(private route: ActivatedRoute,
               @Inject(MAT_DIALOG_DATA) public data: any,
-              private dialog: MatDialog, private fb: FormBuilder) {
+              private dialog: MatDialog,
+              private fb: FormBuilder,
+              private service: UnidadeNegocioService) {
     this.objectToEdit = {...data.item}
   }
 
   ngOnInit(){
     this.createForm();
-    console.log(this.objectToEdit)
   }
 
   createForm(): void {
@@ -52,7 +55,12 @@ export class EditarUnidadeComponent implements OnInit{
   }
 
   editarUnidade(unidadeNegocio: UnidadeNegocio){
-      console.log("OBJETO PARA EDITAR",unidadeNegocio)
+      this.service.atualizarUnidade(unidadeNegocio.id, unidadeNegocio).pipe(
+        tap((res) => {
+
+        })).subscribe((result) => {
+        this.dialog.closeAll()
+      })
   }
 
 

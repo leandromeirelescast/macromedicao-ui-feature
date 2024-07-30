@@ -60,9 +60,6 @@ export class UnidadeNegocioComponent {
   }
 
   openEditDialog(unidadeNegocio: UnidadeNegocio) {
-
-    console.log(unidadeNegocio)
-
     const dialogEditRef = this.dialog.open(EditarUnidadeComponent, {
       height: '350px',
       width: '750px',
@@ -70,6 +67,10 @@ export class UnidadeNegocioComponent {
         item: unidadeNegocio
       }
     });
+
+    dialogEditRef.afterClosed().subscribe((result) => {
+      this.loadUnidades(this.page, this.size)   }
+    )
 
   }
 
