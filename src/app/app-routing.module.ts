@@ -2,15 +2,20 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ComunicacaoInternaComponent } from './comunicacao-interna/comunicacao-interna.component';
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
-import { GerenciarUsuariosComponent } from './gerenciar-usuarios/gerenciar-usuarios.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NotificationConfigsComponent } from './notification/notification-dialog/notification-configs.component';
 import { NotificationComponent } from './notification/notification.component';
+import { InputManualComponent } from './input-manual/input-manual.component';
+import { InputAutomaticoComponent } from './input-automatico/input-automatico.component';
+import { OcorrenciasComponent } from './ocorrencias/ocorrencias.component';
+import { ModeloRelatorioComponent } from './modelo-relatorio/modelo-relatorio.component';
+import { FormulasComponent } from './formulas/formulas.component';
 import { NovaComunicacaoInternaComponent } from './nova-comunicacao-interna/nova-comunicacao-interna.component';
 import { ParametrosComponent } from './parametros/parametros.component';
 import { SolicitacaoAcessoComponent } from './solicitacao-acesso/solicitacao-acesso.component';
+
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -21,15 +26,16 @@ export const routes: Routes = [
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'solicitacao-acesso', component: SolicitacaoAcessoComponent },
-      { path: 'gerenciar-usuarios', component: GerenciarUsuariosComponent },
       { path: 'editar-usuario/:id', component: EditarUsuarioComponent },
       { path: 'comunicacao-interna', component: ComunicacaoInternaComponent },
-      {
-        path: 'nova-comunicacao-interna',
-        component: NovaComunicacaoInternaComponent,
-      },
+      { path: 'nova-comunicacao-interna',  component: NovaComunicacaoInternaComponent,},
       { path: 'parametros', component: ParametrosComponent },
       { path: 'notification', component: NotificationComponent },
+      { path: 'input-automatico', component: InputAutomaticoComponent },
+      { path: 'input-manual', component: InputManualComponent },
+      { path: 'ocorrencias', component: OcorrenciasComponent },
+      { path: 'modelo-relatorio', component: ModeloRelatorioComponent },
+      { path: 'formulas', component: FormulasComponent },
       { path: 'notification/config', component: NotificationConfigsComponent },
     ],
   },

@@ -15,7 +15,7 @@ import {PermissaoDialogComponent} from "../permissao-dialog/permissao-dialog.com
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-gerenciar-usuarios',
+  selector: 'app-formulas',
   standalone: true,
   imports: [
     NgClass,
@@ -24,10 +24,10 @@ import {Router} from "@angular/router";
     MatPaginator,
     MatIcon
   ],
-  templateUrl: './gerenciar-usuarios.component.html',
-  styleUrl: './gerenciar-usuarios.component.scss'
+  templateUrl: './formulas.component.html',
+  styleUrl: './formulas.component.scss'
 })
-export class GerenciarUsuariosComponent {
+export class FormulasComponent {
   form!: FormGroup;
   activeTab = 'cadastrados';
   perfis = [

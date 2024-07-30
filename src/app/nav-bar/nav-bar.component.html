@@ -9,39 +9,109 @@
         <mat-icon>home</mat-icon>
         <span class="menu-text" *ngIf="!isCollapsed">Página Inicial</span>
       </a>
-      <a mat-list-item routerLink="/macromedicao" routerLinkActive="active-link">
-        <mat-icon>assignment</mat-icon>
-        <span class="menu-text" *ngIf="!isCollapsed">macromedicao</span>
-        <mat-icon class="expand-icon" *ngIf="!isCollapsed">{{ isSubMenuOpen('macromedicao') ? 'expand_less' : 'expand_more' }}</mat-icon>
-      </a>
-      <mat-nav-list *ngIf="isSubMenuOpen('macromedicao')">
-      </mat-nav-list>
-      <a mat-list-item routerLink="/comunicacao-interna" routerLinkActive="active-link">
-        <mat-icon>description</mat-icon>
-        <span class="menu-text" *ngIf="!isCollapsed">Comunicação Interna</span>
-      </a>
-      <a mat-list-item routerLink="/ensaios" routerLinkActive="active-link">
-        <mat-icon>science</mat-icon>
-        <span class="menu-text" *ngIf="!isCollapsed">Ensaios</span>
-        <mat-icon class="expand-icon" *ngIf="!isCollapsed">{{ isSubMenuOpen('ensaios') ? 'expand_less' : 'expand_more' }}</mat-icon>
-      </a>
-      <mat-nav-list *ngIf="isSubMenuOpen('ensaios')">
-      </mat-nav-list>
-      <a mat-list-item (click)="toggleSubMenu('sistema')">
+      <a mat-list-item (click)="toggleSubMenu('telemetria')">
         <mat-icon>settings</mat-icon>
-        <span class="menu-text" *ngIf="!isCollapsed">Sistema</span>
-        <mat-icon class="expand-icon" *ngIf="!isCollapsed">{{ isSubMenuOpen('sistema') ? 'expand_less' : 'expand_more' }}</mat-icon>
+        <span class="menu-text" *ngIf="!isCollapsed">Telemetria</span>
+        <mat-icon class="expand-icon" *ngIf="!isCollapsed">{{ isSubMenuOpen('telemetria') ? 'expand_less' : 'expand_more' }}</mat-icon>
       </a>
-      <mat-nav-list *ngIf="isSubMenuOpen('sistema')">
-        <a mat-list-item routerLink="/gerenciar-usuarios" routerLinkActive="active-link">
-               Gerenciar Usuários
+          <mat-nav-list *ngIf="isSubMenuOpen('telemetria')">
+          <a mat-list-item routerLink="/input-manual" routerLinkActive="active-link">
+            Input Manual
+          </a>
+          <a mat-list-item routerLink="/input-automatico" routerLinkActive="active-link">
+            Input Automático
+          </a>
+          <a mat-list-item routerLink="/ocorrencias" routerLinkActive="active-link">
+            Ocorrências
+          </a>
+          <a mat-list-item routerLink="/modelo-relatorio" routerLinkActive="active-link">
+            Modelos de Relatório
+          </a>
+      </mat-nav-list>
+      <a mat-list-item routerLink="/formulas" routerLinkActive="active-link">
+        <mat-icon>description</mat-icon>
+        <span class="menu-text" *ngIf="!isCollapsed">Fórmulas</span>
+      </a>
+      <mat-nav-list>
+        <a mat-list-item (click)="toggleSubMenu('validacao')">
+          <mat-icon>settings</mat-icon>
+          <span class="menu-text" *ngIf="!isCollapsed">Validação de Dados</span>
+          <mat-icon class="expand-icon" *ngIf="!isCollapsed">{{ isSubMenuOpen('validacao') ? 'expand_less' : 'expand_more' }}</mat-icon>
         </a>
-        <a mat-list-item routerLink="/parametros" routerLinkActive="active-link">
-               Parâmetros
+          <mat-nav-list *ngIf="isSubMenuOpen('validacao')">
+            <a mat-list-item routerLink="/recomposicao-dados" routerLinkActive="active-link">
+              Recomposição de Dados
+            </a>
+            <a mat-list-item routerLink="/criterio-validacao" routerLinkActive="active-link">
+              Critérios de Validação
+            </a>
+          </mat-nav-list>
+      </mat-nav-list>
+      <mat-nav-list>
+        <a mat-list-item (click)="toggleSubMenu('graficos')">
+          <mat-icon>settings</mat-icon>
+          <span class="menu-text" *ngIf="!isCollapsed">Graficos e Indicadores</span>
+          <mat-icon class="expand-icon" *ngIf="!isCollapsed">{{ isSubMenuOpen('graficos') ? 'expand_less' : 'expand_more' }}</mat-icon>
         </a>
-        <a mat-list-item routerLink="/notification" routerLinkActive="active-link">
-          Central de Notificações
+          <mat-nav-list *ngIf="isSubMenuOpen('graficos')">
+            <a mat-list-item routerLink="/curva-tipica" routerLinkActive="active-link">
+              Curva Típica
+            </a>
+            <a mat-list-item routerLink="/graficos-vision" routerLinkActive="active-link">
+              Gráficos PI Vision
+            </a>
+          </mat-nav-list>
+      </mat-nav-list>
+      <mat-nav-list>
+        <a mat-list-item (click)="toggleSubMenu('cadastro')">
+          <mat-icon>settings</mat-icon>
+          <span class="menu-text" *ngIf="!isCollapsed">Cadastro</span>
+          <mat-icon class="expand-icon" *ngIf="!isCollapsed">{{ isSubMenuOpen('cadastro') ? 'expand_less' : 'expand_more' }}</mat-icon>
         </a>
+          <mat-nav-list *ngIf="isSubMenuOpen('cadastro')">
+            <a mat-list-item routerLink="/curva-tipica" routerLinkActive="active-link">
+              Tabelas Auxiliares
+            </a>
+            <a mat-list-item routerLink="/graficos-vision" routerLinkActive="active-link">
+              Estruturas
+            </a>
+            <a mat-list-item routerLink="/curva-tipica" routerLinkActive="active-link">
+              Medição e Leitura
+            </a>
+            <a mat-list-item routerLink="/graficos-vision" routerLinkActive="active-link">
+              Tabela PM
+            </a>
+            <a mat-list-item routerLink="/curva-tipica" routerLinkActive="active-link">
+              Troca de Medidor
+            </a>
+            <a mat-list-item routerLink="/graficos-vision" routerLinkActive="active-link">
+              Relatórios e Certificados de Calibração
+            </a>
+          </mat-nav-list>
+      </mat-nav-list>
+      <mat-nav-list>
+        <a mat-list-item (click)="toggleSubMenu('sistema')">
+          <mat-icon>settings</mat-icon>
+          <span class="menu-text" *ngIf="!isCollapsed">Sistema</span>
+          <mat-icon class="expand-icon" *ngIf="!isCollapsed">{{ isSubMenuOpen('sistema') ? 'expand_less' : 'expand_more' }}</mat-icon>
+        </a>
+          <mat-nav-list *ngIf="isSubMenuOpen('sistema')">
+            <a mat-list-item routerLink="/curva-tipica" routerLinkActive="active-link">
+              Auditoria
+            </a>
+            <a mat-list-item routerLink="/graficos-vision" routerLinkActive="active-link">
+              Central de Notificações
+            </a>
+            <a mat-list-item routerLink="/curva-tipica" routerLinkActive="active-link">
+              Meu Cadastro
+            </a>
+            <a mat-list-item routerLink="/graficos-vision" routerLinkActive="active-link">
+              Perfis de Acesso
+            </a>
+            <a mat-list-item routerLink="/curva-tipica" routerLinkActive="active-link">
+              Usuários
+            </a>
+          </mat-nav-list>
       </mat-nav-list>
     </mat-nav-list>
   </mat-sidenav>
