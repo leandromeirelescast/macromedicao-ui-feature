@@ -20,7 +20,7 @@ import {UsuarioForm} from "../../models/UsuarioForm";
     NgForOf,
     MatIcon,
     MatButton,
-    MatPaginator
+    MatPaginator,
   ],
   templateUrl: './unidade-negocio.component.html',
   styleUrl: './unidade-negocio.component.scss'
