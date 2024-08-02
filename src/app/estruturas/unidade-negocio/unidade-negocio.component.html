@@ -3,24 +3,26 @@
     <div class="row-cols-auto">
       <div class="col-auto">
         <label for="codigo">Unidade de Negócio</label>
-        <select id="codigo" formControlName="perfil">
+        <select id="codigo" [(ngModel)]="selectedValue">
           <option value="">Selecione</option>
-          <option *ngFor="let item of unidadeNegocio" [value] = "item.nmUnidadeNegocio"> {{item.nmUnidadeNegocio}} </option>
+          <option *ngFor="let item of unidadeNegocio" [value] = "item.nmUnidadeNegocio" > {{item.nmUnidadeNegocio}} </option>
         </select>
       </div>
       <div class="col btn-pesquisar">
-        <button type="button" class="btn primary" >Pesquisar</button>
+        <button type="button" class="btn primary" (click)="loadSearch(selectedValue, true)" >Pesquisar</button>
       </div>
     </div>
 
-    <div>
+
+
+    <div >
       <div class="row-cols-auto">
         <div class="col-auto">
           <h4>Unidades de negócio</h4>
         </div>
         <div class="col-auto">
           <button type="button" class="btn primary" >Exportar</button>
-          <button type="button"  mat-button (click)="openDialog()"class="btn " > + Adicionar</button>
+          <button type="button"  mat-button (click)="openDialog()" class="btn " > + Adicionar</button>
         </div>
 
       </div>
@@ -33,10 +35,29 @@
           <th>Ações</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody *ngIf="!activeSearch">
         <tr *ngFor="let item of unidadeNegocio">
           <td>{{ item?.codigoUnidade }}</td>
           <td>{{ item?.nmUnidadeNegocio }}</td>
+
+          <td>
+            <button class="icon-button" (click)="openEditDialog(item)">
+              <mat-icon>edit_square</mat-icon>
+            </button>
+            <button class="icon-button" >
+              <mat-icon>assignment</mat-icon>
+            </button>
+            <button class="icon-button" color="warn" (click)="deleteItem(item.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+
+        <tbody *ngIf="activeSearch">
+        <tr *ngFor="let item of unidadeFilter.dataList">
+          <td>{{ item.codigoUnidade }}</td>
+          <td>{{ item.nmUnidadeNegocio }}</td>
 
           <td>
             <button class="icon-button" (click)="openEditDialog(item)">

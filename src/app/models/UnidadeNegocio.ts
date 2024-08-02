@@ -10,3 +10,8 @@ export interface UnidadeNegocioDTO {
   descricao: string;
   nome: string;
 }
+
+
+export interface UnidadeData {
+  dataList: UnidadeNegocio[];
+}

@@ -44,4 +44,8 @@ export class UnidadeNegocioService {
 
     return this.http.put(`${environment.urlApi}/unidade-negocio/${id}`, unidadeNegocioDTO, {headers: headers} );
   }
+
+  buscarPorNome(selectedValue: any): Observable<any>{
+    return this.http.get(`${environment.urlApi}/unidade-negocio/search/${selectedValue}`)
+  }
 }

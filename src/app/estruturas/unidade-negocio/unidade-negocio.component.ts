@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import {NgForOf} from "@angular/common";
-import {UnidadeNegocio} from "../../models/UnidadeNegocio";
+import {Component } from '@angular/core';
+import {CommonModule, NgForOf} from "@angular/common";
+import {UnidadeData, UnidadeNegocio} from "../../models/UnidadeNegocio";
 import {Router} from "@angular/router";
 import {UnidadeNegocioService} from "../../services/unidade-negocio.service";
 import {MatIcon} from "@angular/material/icon";
@@ -8,10 +8,8 @@ import {MatDialog} from "@angular/material/dialog";
 import {IncluirUnidadeComponent} from "./incluir-unidade/incluir-unidade.component";
 import {MatButton} from "@angular/material/button";
 import {MatPaginator} from "@angular/material/paginator";
-import {Observable} from "rxjs";
 import {EditarUnidadeComponent} from "./editar-unidade/editar-unidade.component";
-import {UsuarioForm} from "../../models/UsuarioForm";
-
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-unidade-negocio',
@@ -21,6 +19,8 @@ import {UsuarioForm} from "../../models/UsuarioForm";
     MatIcon,
     MatButton,
     MatPaginator,
+    CommonModule,
+    FormsModule
   ],
   templateUrl: './unidade-negocio.component.html',
   styleUrl: './unidade-negocio.component.scss'
@@ -36,6 +36,11 @@ export class UnidadeNegocioComponent {
   totalPages = 0;
   page = 0;
   unidadeNegocio:UnidadeNegocio[] = []
+  unidadeFilter:UnidadeData = {
+    dataList: []
+  }
+  activeSearch= false;
+  selectedValue: any;
 
   ngOnInit(): void {
     this.loadUnidades(this.page, this.size)
@@ -54,7 +59,7 @@ export class UnidadeNegocioComponent {
       width: '750px',
     });
 
-   dialogRef.afterClosed().subscribe((result) => {
+   dialogRef.afterClosed().subscribe(() => {
      this.loadUnidades(this.page, this.size)   }
    )
   }
@@ -86,5 +91,16 @@ export class UnidadeNegocioComponent {
     this.size = event.pageSize;
     this.loadUnidades(this.page, this.size);
   }
+
+  loadSearch(item: UnidadeNegocio, active: boolean): void {
+    this.activeSearch = true
+    console.log("VALOR", this.selectedValue)
+
+    this.unidadeNegocioService.buscarPorNome(this.selectedValue).subscribe(response => {
+      let data = response
+      this.unidadeFilter.dataList = data
+      })
+     console.log(this.unidadeFilter);
+    }
 
 }
