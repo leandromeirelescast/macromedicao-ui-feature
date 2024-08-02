@@ -80,7 +80,7 @@ export class UnidadeNegocioComponent {
   }
 
   deleteItem(id: number) {
-    this.unidadeNegocioService.deleteUnidade(id).subscribe(() => {
+    this.unidadeNegocioService.deleteUnidade(id).subscribe((result) => {
       this.loadUnidades(this.page, this.size);
     });
   }
