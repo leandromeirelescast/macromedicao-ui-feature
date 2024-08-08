@@ -14,6 +14,16 @@
         <span class="menu-text" *ngIf="!isCollapsed">Telemetria</span>
         <mat-icon class="expand-icon" *ngIf="!isCollapsed">{{ isSubMenuOpen('telemetria') ? 'expand_less' : 'expand_more' }}</mat-icon>
       </a>
+
+      <a mat-list-item (click)="toggleSubMenu('cadastro')">
+        <mat-icon>settings</mat-icon>
+        <span class="menu-text" *ngIf="!isCollapsed">Cadastros</span>
+        <mat-icon class="expand-icon" *ngIf="!isCollapsed">{{ isSubMenuOpen('cadastro') ? 'expand_less' : 'expand_more' }}</mat-icon>
+      </a>
+      <mat-nav-list *ngIf="isSubMenuOpen('cadastro')">
+        <a mat-list-item routerLink="/estruturas" routerLinkActive="active-link">
+         Estruturas
+        </a>
           <mat-nav-list *ngIf="isSubMenuOpen('telemetria')">
           <a mat-list-item routerLink="/input-manual" routerLinkActive="active-link">
             Input Manual
@@ -28,6 +38,8 @@
             Modelos de Relatório
           </a>
       </mat-nav-list>
+
+        <a mat-list-item routerLink="/comunicacao-interna" routerLinkActive="active-link"></a>
       <a mat-list-item routerLink="/formulas" routerLinkActive="active-link">
         <mat-icon>description</mat-icon>
         <span class="menu-text" *ngIf="!isCollapsed">Fórmulas</span>
@@ -112,6 +124,7 @@
               Usuários
             </a>
           </mat-nav-list>
+      </mat-nav-list>
       </mat-nav-list>
     </mat-nav-list>
   </mat-sidenav>
