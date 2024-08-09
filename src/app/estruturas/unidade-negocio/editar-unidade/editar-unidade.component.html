@@ -1,0 +1,40 @@
+<div class="modal-fullscreen-md-down">
+  <div class="adicionar-unidade">
+    <div class="col">
+      <h4>Editar Unidade de Negocio </h4>
+    </div>
+  </div>
+
+  <div class="row col-md-12 align-items-center">
+      <div class="col-12 input-group">
+
+        <div class="col-4">
+          <label for="code" class="form-label">Codigo <span style="color:red">*</span></label>
+          <input id="code" class="form-control" [disabled]="true" [(ngModel)]="objectToEdit.codigoUnidade"/>
+        </div>
+
+
+
+        <div class="col-4">
+            <label for="nome" class="form-label">Nome da unidade de Negocio <span style="color:red">*</span></label>
+            <input id="nome" class="form-control" [(ngModel)]="objectToEdit.nmUnidadeNegocio"/>
+          </div>
+
+
+        <div class="col-4" style="padding-left: 15px">
+          <label for="descricao" class="form-label">Descricao </label>
+          <input id="descricao" class="form-control" [(ngModel)]="objectToEdit.dsUnidadeNegocio"/>
+        </div>
+      </div>
+
+      <div class="col-6 btn-group d-inline-flex" style="padding-top: 15px">
+        <div class="col-3">
+          <button type="button" class="btn btn-danger align-items-center" (click)="cancelarAlteracao()">Cancelar</button>
+        </div>
+        <div class="col-3">
+          <button type="button" class="btn btn-primary align-items-center" (click)="editarUnidade(objectToEdit)">Salvar</button>
+        </div>
+      </div>
+  </div>
+
+</div>

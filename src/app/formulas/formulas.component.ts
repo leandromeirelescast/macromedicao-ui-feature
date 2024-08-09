@@ -5,13 +5,8 @@ import {UserService} from "../services/user.service";
 import {MatPaginator} from "@angular/material/paginator";
 import {UsuarioForm} from "../models/UsuarioForm";
 import {MatIcon} from "@angular/material/icon";
-import {
-  ConfirmacaoSolicitacaoDialogComponent
-} from "../confirmacao-solicitacao-dialog/confirmacao-solicitacao-dialog.component";
-import {AtivacaoDialogComponent} from "../ativacao-dialog/ativacao-dialog.component";
+
 import {MatDialog} from "@angular/material/dialog";
-import {catchError, EMPTY, tap} from "rxjs";
-import {PermissaoDialogComponent} from "../permissao-dialog/permissao-dialog.component";
 import {Router} from "@angular/router";
 
 @Component({
@@ -59,28 +54,6 @@ export class FormulasComponent {
       this.usuariosCadastrados = response.content;
       this.totalElements = response.totalElements;
       this.totalPages = response.totalPages;
-    });
-  }
-
-  onSituacaoChange(usuario: UsuarioForm) {
-    usuario.ativo = !usuario.ativo;
-    const dialogRef = this.dialog.open(AtivacaoDialogComponent, {
-      width: '700px',
-      height: '412px',
-      data: usuario
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.userService.alterarSituacao(usuario.id, usuario.ativo).pipe(
-          tap(success => {
-            console.log('Usuário criado com sucesso:', success);
-          }),
-          catchError(error => {
-            console.error('Erro ao criar usuário:', error);
-            return EMPTY;
-          })
-        ).subscribe();
-      }
     });
   }
 

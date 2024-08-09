@@ -3,7 +3,7 @@ import {MatIcon} from "@angular/material/icon";
 import {MatIconButton} from "@angular/material/button";
 import {MatToolbar} from "@angular/material/toolbar";
 import {Router} from "@angular/router";
-import {NgOptimizedImage} from "@angular/common";
+import {NgIf, NgOptimizedImage} from "@angular/common";
 import {MatFooterRow} from "@angular/material/table";
 import {StorageService} from "../services/storage.service";
 
@@ -15,7 +15,8 @@ import {StorageService} from "../services/storage.service";
     MatIconButton,
     MatToolbar,
     NgOptimizedImage,
-    MatFooterRow
+    MatFooterRow,
+    NgIf
   ],
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.scss'

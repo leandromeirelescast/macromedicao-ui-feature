@@ -7,6 +7,7 @@ import {NavBarComponent} from "../nav-bar/nav-bar.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {StorageService} from "../services/storage.service";
+import {NgIf} from "@angular/common";
 
 @Component({
   imports: [
@@ -16,7 +17,8 @@ import {StorageService} from "../services/storage.service";
     MatToolbar,
     MatIcon,
     NavBarComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgIf
   ],
   selector: 'app-home',
   standalone: true,
