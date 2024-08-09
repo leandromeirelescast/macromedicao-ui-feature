@@ -5,9 +5,6 @@ import {UserService} from "../services/user.service";
 import {MatPaginator} from "@angular/material/paginator";
 import {UsuarioForm} from "../models/UsuarioForm";
 import {MatIcon} from "@angular/material/icon";
-import {
-  ConfirmacaoSolicitacaoDialogComponent
-} from "../confirmacao-solicitacao-dialog/confirmacao-solicitacao-dialog.component";
 import {AtivacaoDialogComponent} from "../ativacao-dialog/ativacao-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 import {catchError, EMPTY, tap} from "rxjs";
