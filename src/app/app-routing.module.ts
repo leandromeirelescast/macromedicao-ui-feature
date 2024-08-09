@@ -12,6 +12,12 @@ import { InputAutomaticoComponent } from './input-automatico/input-automatico.co
 import { OcorrenciasComponent } from './ocorrencias/ocorrencias.component';
 import { ModeloRelatorioComponent } from './modelo-relatorio/modelo-relatorio.component';
 import { FormulasComponent } from './formulas/formulas.component';
+import { RecomposicaoDadosComponent } from './recomposicao-dados/recomposicao-dados.component';
+import { CriterioValidacaoComponent } from './criterio-validacao/criterio-validacao.component';
+import { CurvaTipicaComponent } from './curva-tipica/curva-tipica.component';
+import { GraficoVisionComponent } from './graficos-vision/graficos-vision.component';
+
+
 import { NovaComunicacaoInternaComponent } from './nova-comunicacao-interna/nova-comunicacao-interna.component';
 import { ParametrosComponent } from './parametros/parametros.component';
 import { SolicitacaoAcessoComponent } from './solicitacao-acesso/solicitacao-acesso.component';
@@ -36,6 +42,10 @@ export const routes: Routes = [
       { path: 'ocorrencias', component: OcorrenciasComponent },
       { path: 'modelo-relatorio', component: ModeloRelatorioComponent },
       { path: 'formulas', component: FormulasComponent },
+      { path: 'recomposicao-dados', component: RecomposicaoDadosComponent },
+      { path: 'criterio-validacao', component: CriterioValidacaoComponent },
+      { path: 'curva-tipica', component: CurvaTipicaComponent },
+      { path: 'graficos-vision', component: GraficoVisionComponent },
       { path: 'notification/config', component: NotificationConfigsComponent },
     ],
   },
