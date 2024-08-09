@@ -14,32 +14,22 @@
         <span class="menu-text" *ngIf="!isCollapsed">Telemetria</span>
         <mat-icon class="expand-icon" *ngIf="!isCollapsed">{{ isSubMenuOpen('telemetria') ? 'expand_less' : 'expand_more' }}</mat-icon>
       </a>
-
-      <a mat-list-item (click)="toggleSubMenu('cadastro')">
-        <mat-icon>settings</mat-icon>
-        <span class="menu-text" *ngIf="!isCollapsed">Cadastros</span>
-        <mat-icon class="expand-icon" *ngIf="!isCollapsed">{{ isSubMenuOpen('cadastro') ? 'expand_less' : 'expand_more' }}</mat-icon>
-      </a>
-      <mat-nav-list *ngIf="isSubMenuOpen('cadastro')">
-        <a mat-list-item routerLink="/estruturas" routerLinkActive="active-link">
-         Estruturas
+      <mat-nav-list *ngIf="isSubMenuOpen('telemetria')">
+        <a mat-list-item routerLink="/input-manual" routerLinkActive="active-link">
+          Input Manual
         </a>
-          <mat-nav-list *ngIf="isSubMenuOpen('telemetria')">
-          <a mat-list-item routerLink="/input-manual" routerLinkActive="active-link">
-            Input Manual
-          </a>
-          <a mat-list-item routerLink="/input-automatico" routerLinkActive="active-link">
-            Input Automático
-          </a>
-          <a mat-list-item routerLink="/ocorrencias" routerLinkActive="active-link">
-            Ocorrências
-          </a>
-          <a mat-list-item routerLink="/modelo-relatorio" routerLinkActive="active-link">
-            Modelos de Relatório
-          </a>
+        <a mat-list-item routerLink="/input-automatico" routerLinkActive="active-link">
+          Input Automático
+        </a>
+        <a mat-list-item routerLink="/ocorrencias" routerLinkActive="active-link">
+          Ocorrências
+        </a>
+        <a mat-list-item routerLink="/modelo-relatorio" routerLinkActive="active-link">
+          Modelos de Relatório
+        </a>
       </mat-nav-list>
 
-        <a mat-list-item routerLink="/comunicacao-interna" routerLinkActive="active-link"></a>
+     
       <a mat-list-item routerLink="/formulas" routerLinkActive="active-link">
         <mat-icon>description</mat-icon>
         <span class="menu-text" *ngIf="!isCollapsed">Fórmulas</span>
@@ -74,32 +64,30 @@
             </a>
           </mat-nav-list>
       </mat-nav-list>
-      <mat-nav-list>
-        <a mat-list-item (click)="toggleSubMenu('cadastro')">
-          <mat-icon>settings</mat-icon>
-          <span class="menu-text" *ngIf="!isCollapsed">Cadastro</span>
-          <mat-icon class="expand-icon" *ngIf="!isCollapsed">{{ isSubMenuOpen('cadastro') ? 'expand_less' : 'expand_more' }}</mat-icon>
+      <a mat-list-item (click)="toggleSubMenu('cadastro')">
+        <mat-icon>settings</mat-icon>
+        <span class="menu-text" *ngIf="!isCollapsed">Cadastros</span>
+        <mat-icon class="expand-icon" *ngIf="!isCollapsed">{{ isSubMenuOpen('cadastro') ? 'expand_less' : 'expand_more' }}</mat-icon>
+      </a>
+      <mat-nav-list *ngIf="isSubMenuOpen('cadastro')">
+        <a mat-list-item routerLink="/tabelas-auxiliares" routerLinkActive="active-link">
+          Tabelas Auxiliares
         </a>
-          <mat-nav-list *ngIf="isSubMenuOpen('cadastro')">
-            <a mat-list-item routerLink="/curva-tipica" routerLinkActive="active-link">
-              Tabelas Auxiliares
-            </a>
-            <a mat-list-item routerLink="/graficos-vision" routerLinkActive="active-link">
-              Estruturas
-            </a>
-            <a mat-list-item routerLink="/curva-tipica" routerLinkActive="active-link">
-              Medição e Leitura
-            </a>
-            <a mat-list-item routerLink="/graficos-vision" routerLinkActive="active-link">
-              Tabela PM
-            </a>
-            <a mat-list-item routerLink="/curva-tipica" routerLinkActive="active-link">
-              Troca de Medidor
-            </a>
-            <a mat-list-item routerLink="/graficos-vision" routerLinkActive="active-link">
-              Relatórios e Certificados de Calibração
-            </a>
-          </mat-nav-list>
+        <a mat-list-item routerLink="/estruturas" routerLinkActive="active-link">
+         Estruturas
+        </a>
+        <a mat-list-item routerLink="/medicao-leitura" routerLinkActive="active-link">
+          Medição e Leitura
+        </a>
+        <a mat-list-item routerLink="/tabela-pm" routerLinkActive="active-link">
+          Tabela PM
+        </a>
+        <a mat-list-item routerLink="/troca-medidor" routerLinkActive="active-link">
+          Troca de Medidor
+        </a>
+        <a mat-list-item routerLink="/relatorio-calibracao" routerLinkActive="active-link">
+          Relatórios e Certificados de Calibração
+        </a>
       </mat-nav-list>
       <mat-nav-list>
         <a mat-list-item (click)="toggleSubMenu('sistema')">
@@ -126,7 +114,7 @@
           </mat-nav-list>
       </mat-nav-list>
       </mat-nav-list>
-    </mat-nav-list>
+    
   </mat-sidenav>
   <mat-sidenav-content class="main-content" [class.main-content-collapsed]="isCollapsed">
     <router-outlet></router-outlet>
